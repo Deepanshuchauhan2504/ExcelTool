@@ -158,3 +158,16 @@ class DataManager:
                 )
         
         return filtered_df
+
+    def apply_forward_fill(self, columns):
+        """
+        Applies forward fill to the specified columns.
+        This handles merged cells by filling nulls with the preceding non-null value.
+        """
+        if self.df is None or not columns:
+            return
+        
+        self.df = self.df.with_columns([
+            pl.col(col).forward_fill() for col in columns
+        ])
+
