@@ -55,8 +55,34 @@ def main():
                     st.rerun()
                 else:
                     st.error(msg)
+        
+        st.divider()
+
+        # Data Preprocessing Section
+        if dm.df is not None:
+            st.header("🛠️ Data Preprocessing")
+            handle_merged = st.toggle("🔄 Handle Merged Cells", help="Automatically fills empty cells that were part of a merged row in Excel.")
+            
+            if handle_merged:
+                # Store columns to fill in session state to persist through reruns
+                if 'ffill_cols' not in st.session_state:
+                    st.session_state.ffill_cols = []
+                
+                selected_cols = st.multiselect(
+                    "Select columns to fill:", 
+                    dm.df.columns,
+                    default=st.session_state.ffill_cols,
+                    key="ffill_col_selector"
+                )
+                
+                if st.button("Apply Fill", use_container_width=True):
+                    dm.apply_forward_fill(selected_cols)
+                    st.session_state.ffill_cols = selected_cols
+                    st.success("Forward fill applied!")
+                    st.rerun()
 
     # Main Content Area
+
     if dm.df is not None:
         from ui.filters import render_filters
         
