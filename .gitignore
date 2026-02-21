@@ -1,0 +1,25 @@
+# Virtual environment
+.venv/
+venv/
+ENV/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Streamlit
+.streamlit/
+
+# Build and Dist
+dist/
+build/
+*.spec
+
+# Data
+data/
+
+# IDEs
+.vscode/
+.idea/

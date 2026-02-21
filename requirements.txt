@@ -1,0 +1,9 @@
+streamlit
+polars
+plotly
+xlsxwriter
+openpyxl
+pyinstaller
+jinja2
+fastexcel
+kaleido
