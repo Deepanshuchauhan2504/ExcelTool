@@ -12,12 +12,17 @@ def main():
 
     # --- Navigation ---
     st.sidebar.title("Navigation")
-    app_mode = st.sidebar.radio("Choose App Mode", ["Analysis", "Data Merge & Cross-Reference"])
+    app_mode = st.sidebar.radio("Choose App Mode", ["Analysis", "Data Merge & Cross-Reference", "Large Text to Excel Splitter"])
     st.sidebar.divider()
 
     if app_mode == "Data Merge & Cross-Reference":
         from merge_ui import render_merge_ui
         render_merge_ui()
+        return
+        
+    if app_mode == "Large Text to Excel Splitter":
+        from splitter_ui import render_splitter_ui
+        render_splitter_ui()
         return
 
     st.title("🚀 Excel Analysis & Reporting Tool")
