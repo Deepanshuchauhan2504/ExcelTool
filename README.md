@@ -1,3 +1,13 @@
+---
+title: Excel Analysis & Data Merge Tool
+emoji: 📊
+colorFrom: blue
+colorTo: green
+sdk: streamlit
+app_file: src/main.py
+pinned: false
+---
+
 # 🚀 Excel Analysis & Reporting Tool
 
 A fast, interactive web application built with Streamlit and Polars for lightning-fast Excel and CSV data analysis, visualization, and automated reporting.
