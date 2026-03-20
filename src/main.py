@@ -10,6 +10,16 @@ def main():
     
     dm = st.session_state.data_manager
 
+    # --- Navigation ---
+    st.sidebar.title("Navigation")
+    app_mode = st.sidebar.radio("Choose App Mode", ["Analysis", "Data Merge & Cross-Reference"])
+    st.sidebar.divider()
+
+    if app_mode == "Data Merge & Cross-Reference":
+        from merge_ui import render_merge_ui
+        render_merge_ui()
+        return
+
     st.title("🚀 Excel Analysis & Reporting Tool")
     
     # Sidebar for Data Management
